@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import Hero from '../../components/Hero.astro';
+import About from '../../components/About.astro';
+import Products from '../../components/Products.astro';
+import Banner from '../../components/Banner.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+const lang = 'fr';
+---
+<BaseLayout lang={lang} title="Boutique Harley-Davidson — Sint Maarten SXM" description="Merchandising officiel Harley-Davidson au Bobbys' Marina, Philipsburg. Tees authentiques, accessoires, exclusivités Caraïbes.">
+  <Nav lang={lang} />
+  <main>
+    <Hero lang={lang} />
+    <About lang={lang} />
+    <Products lang={lang} />
+    <Banner lang={lang} />
+    <Contact lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</BaseLayout>

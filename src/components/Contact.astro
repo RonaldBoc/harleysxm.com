@@ -1,0 +1,243 @@
+---
+import { useTranslations, type Lang } from '../i18n/index';
+const { lang } = Astro.props as { lang: Lang };
+const t = useTranslations(lang);
+---
+
+<section id="contact" class="contact">
+  <div class="contact-info">
+    <p class="section-label">{t.contact.label}</p>
+    <h2 class="section-title">{t.contact.title}</h2>
+    <div class="divider"></div>
+
+    <div class="contact-info-block">
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#FF6600" stroke-width="1.4" stroke-linecap="round">
+            <path d="M10 2 C6.5 2 4 4.7 4 8 C4 12.5 10 18 10 18 C10 18 16 12.5 16 8 C16 4.7 13.5 2 10 2Z"/>
+            <circle cx="10" cy="8" r="2.2"/>
+          </svg>
+        </div>
+        <div class="contact-item-content">
+          <span class="contact-item-label">{t.contact.address_label}</span>
+          <span class="contact-item-value">
+            {(t.contact.address_lines as string[]).map((line, i) => (
+              <>{line}{i < (t.contact.address_lines as string[]).length - 1 ? <br /> : null}</>
+            ))}
+          </span>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#FF6600" stroke-width="1.4" stroke-linecap="round">
+            <path d="M5 3 L7 3 L8.5 7 L7 8.5 C7.8 10.5 9.5 12.2 11.5 13 L13 11.5 L17 13 L17 15 C17 16.1 16.1 17 15 17 C8.4 17 3 11.6 3 5 C3 3.9 3.9 3 5 3Z"/>
+          </svg>
+        </div>
+        <div class="contact-item-content">
+          <span class="contact-item-label">{t.contact.phone_label}</span>
+          <a href="tel:+17215425880" class="contact-item-value">{t.contact.phone_value}</a>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#FF6600" stroke-width="1.4" stroke-linecap="round">
+            <circle cx="10" cy="10" r="7.5"/>
+            <path d="M10 2.5 C8 5 7 7.5 7 10 C7 12.5 8 15 10 17.5" stroke="#FF6600" stroke-width="1.4"/>
+            <path d="M10 2.5 C12 5 13 7.5 13 10 C13 12.5 12 15 10 17.5" stroke="#FF6600" stroke-width="1.4"/>
+            <line x1="2.5" y1="10" x2="17.5" y2="10" stroke="#FF6600" stroke-width="1.4"/>
+          </svg>
+        </div>
+        <div class="contact-item-content">
+          <span class="contact-item-label">{t.contact.web_label}</span>
+          <span class="contact-item-value">{t.contact.web_value}</span>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#FF6600" stroke-width="1.4" stroke-linecap="round">
+            <rect x="2" y="5" width="16" height="11" rx="1.5"/>
+            <path d="M2 6 L10 12 L18 6"/>
+          </svg>
+        </div>
+        <div class="contact-item-content">
+          <span class="contact-item-label">{t.contact.email_label}</span>
+          <a href="mailto:contact@harleysxm.com" class="contact-item-value">{t.contact.email_value}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="team">
+      <div class="team-member">
+        <span class="team-role">{t.contact.manager_role}</span>
+        <span class="team-name">Harley SXM</span>
+        <span class="team-email">contact@harleysxm.com</span>
+      </div>
+      <div class="team-member">
+        <span class="team-role">{t.contact.assistant_role}</span>
+        <span class="team-name">HD FWI Team</span>
+        <span class="team-email">info@harleysxm.com</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-wrap">
+    <span class="map-tag">{t.contact.map_tag}</span>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.5!2d-63.0525!3d18.0169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c0f5f12345678ab%3A0x9abcdef012345678!2sBobbys%27+Marina%2C+Philipsburg%2C+Sint+Maarten!5e0!3m2!1sen!2sus!4v1"
+      width="100%"
+      height="100%"
+      style="border:none;"
+      loading="lazy"
+      allowfullscreen
+      title="Bobbys Marina map"
+    ></iframe>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from('.contact-item', {
+    x: -30, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out',
+    scrollTrigger: { trigger: '.contact-info-block', start: 'top 80%' },
+  });
+</script>
+
+<style>
+  .contact {
+    background: var(--hd-dark);
+    padding: 100px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+
+  .contact-info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+    background: rgba(255,102,0,0.1);
+    border: 1px solid rgba(255,102,0,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .contact-item-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--hd-orange);
+  }
+
+  .contact-item-value {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--hd-light);
+    line-height: 1.6;
+    text-decoration: none;
+  }
+  a.contact-item-value { transition: color 0.2s; }
+  a.contact-item-value:hover { color: var(--hd-orange); }
+
+  .team {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    margin-top: 8px;
+  }
+  .team-member {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .team-role {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--hd-orange);
+  }
+  .team-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.05em;
+    color: var(--hd-light);
+  }
+  .team-email {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    color: var(--hd-muted);
+  }
+
+  .map-wrap {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .map-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .map-tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: var(--hd-orange);
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    padding: 7px 14px;
+    z-index: 2;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 1023px) {
+    .contact {
+      grid-template-columns: 1fr;
+      padding: 80px 48px;
+    }
+    .map-wrap { height: 380px; }
+  }
+
+  @media (max-width: 767px) {
+    .contact { padding: 64px 24px; gap: 48px; }
+    .team { grid-template-columns: 1fr; }
+    .map-wrap { height: 300px; }
+  }
+</style>
