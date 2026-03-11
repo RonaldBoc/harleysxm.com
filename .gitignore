@@ -1,5 +1,10 @@
 # build output
 dist/
+.vercel/
+
+# editor swap files
+*.swp
+*.swo
 # generated types
 .astro/
 

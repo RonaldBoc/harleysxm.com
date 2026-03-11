@@ -57,7 +57,7 @@ const t = useTranslations(lang);
 
       <div class="contact-item">
         <div class="contact-icon">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#FF6600" stroke-width="1.4" stroke-linecap="round">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#FF6600" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="5" width="16" height="11" rx="1.5"/>
             <path d="M2 6 L10 12 L18 6"/>
           </svg>
@@ -67,26 +67,29 @@ const t = useTranslations(lang);
           <a href="mailto:contact@harleysxm.com" class="contact-item-value">{t.contact.email_value}</a>
         </div>
       </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#FF6600" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="14" height="14" rx="4"/>
+            <circle cx="10" cy="10" r="3.2"/>
+            <circle cx="14.2" cy="5.8" r="0.8" fill="#FF6600" stroke="none"/>
+          </svg>
+        </div>
+        <div class="contact-item-content">
+          <span class="contact-item-label">Instagram</span>
+          <a href="https://www.instagram.com/harleysxm/" target="_blank" rel="noopener noreferrer" class="contact-item-value">@harleysxm</a>
+        </div>
+      </div>
     </div>
 
-    <div class="team">
-      <div class="team-member">
-        <span class="team-role">{t.contact.manager_role}</span>
-        <span class="team-name">Harley SXM</span>
-        <span class="team-email">contact@harleysxm.com</span>
-      </div>
-      <div class="team-member">
-        <span class="team-role">{t.contact.assistant_role}</span>
-        <span class="team-name">HD FWI Team</span>
-        <span class="team-email">info@harleysxm.com</span>
-      </div>
-    </div>
+    
   </div>
 
   <div class="map-wrap">
     <span class="map-tag">{t.contact.map_tag}</span>
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.5!2d-63.0525!3d18.0169!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c0f5f12345678ab%3A0x9abcdef012345678!2sBobbys%27+Marina%2C+Philipsburg%2C+Sint+Maarten!5e0!3m2!1sen!2sus!4v1"
+      src="https://maps.google.com/maps?q=22H+Juancho+Yrausquin+Blvd,+Philipsburg,+Sint+Maarten&t=&z=17&ie=UTF8&iwloc=&output=embed"
       width="100%"
       height="100%"
       style="border:none;"
