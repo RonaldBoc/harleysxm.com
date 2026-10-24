@@ -1,4 +1,12 @@
 ---
+import '@fontsource/bebas-neue/latin-400.css';
+import '@fontsource/oswald/latin-400.css';
+import '@fontsource/oswald/latin-600.css';
+import '@fontsource/oswald/latin-700.css';
+import '@fontsource/lato/latin-300.css';
+import '@fontsource/lato/latin-400.css';
+import '@fontsource/lato/latin-700.css';
+
 const { lang = 'en', title, description } = Astro.props;
 ---
 <!DOCTYPE html>
@@ -14,17 +22,6 @@ const { lang = 'en', title, description } = Astro.props;
   <meta property="og:url" content="https://harleysxm.com" />
   <link rel="canonical" href="https://harleysxm.com" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
-  <!-- Google Analytics 4 — replace G-XXXXXXXXXX with real Measurement ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(...args: any[]){(window as any).dataLayer.push(args);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
 </head>
 <body>
   <slot />
